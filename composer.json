@@ -1,0 +1,22 @@
+{
+    "name": "alimpr/ds-transformer",
+    "description": "Deal with different DS types fluently",
+    "autoload": {
+        "psr-4": {
+            "DsTransformer\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "alimpr"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "12.0.10"
+    }
+}
