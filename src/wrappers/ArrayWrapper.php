@@ -196,4 +196,8 @@ Class ArrayWrapper {
         usort($this->data, $callback);
         return $this;
     }
+
+    public function walk(callable $callback): void {
+        array_walk($this->data, $callback);
+    }
 }

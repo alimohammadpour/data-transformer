@@ -246,4 +246,9 @@ class ArrayWrapperTest extends TestCase
         $this->wrapper->sortByCallback(fn (int $a, int $b): int =>  $a <=> $b);
         $this->assertEquals([1,2,3], $this->wrapper->get());
     }
+
+    public function testWalk(): void 
+    {
+        $this->assertTrue(method_exists($this->wrapper,'walk'));
+    }
 }
