@@ -251,4 +251,42 @@ class ArrayWrapperTest extends TestCase
     {
         $this->assertTrue(method_exists($this->wrapper,'walk'));
     }
+
+    public function testContains(): void 
+    {
+        $this->assertFalse($this->wrapper->contains(5));
+    }
+
+    public function testIndexOf(): void
+    {
+        $this->assertEquals(1, $this->wrapper->indexOf(2));
+    }
+
+    public function testKeys(): void
+    {
+        $this->assertEquals([0, 1, 2], $this->wrapper->keys());
+    }
+
+    public function testIndexesOf(): void
+    {
+        $this->wrapper->push(2);
+        $this->assertEquals([1, 3], $this->wrapper->indexesOf(2));
+    }
+
+    public function testUnique(): void
+    {
+        $this->wrapper->push(2)->unique();
+        $this->assertEquals([1, 2, 3], $this->wrapper->get());
+    }
+
+    public function testHasDuplicate(): void
+    {
+        $this->wrapper->push(2);
+        $this->assertTrue($this->wrapper->hasDuplicate());
+    }
+
+    public function testHasNoDuplicate(): void
+    {
+        $this->assertFalse($this->wrapper->hasDuplicate());
+    }
 }

@@ -200,4 +200,29 @@ Class ArrayWrapper {
     public function walk(callable $callback): void {
         array_walk($this->data, $callback);
     }
+
+    public function contains(mixed $value): bool {
+        return in_array($value, $this->data, true);
+    }
+
+    public function indexOf(mixed $value): int | bool {
+        return array_search($value, $this->data, true);
+    }
+
+    public function keys(): array {
+        return array_keys($this->data);
+    }
+
+    public function indexesOf(mixed $value): array {
+        return $this->filter(fn (int $item): int => $item === $value)->keys(); 
+    }
+
+    public function unique(): self {
+        $this->setData(array_unique($this->data));
+        return $this;
+    }
+
+    public function hasDuplicate(): bool {
+        return $this->count() > $this->unique()->count();
+    }
 }
